@@ -1,0 +1,208 @@
+# ═══════════════════════════════════════════════════════════
+#  Kubernetes — Portfolio Full Deployment Stack
+#  Domain   : https://surendhiran.dev.com
+#  Namespace: portfolio
+#  Replicas : 3 (HPA: 2–8 pods)
+# ═══════════════════════════════════════════════════════════
+
+# ─── Deployment ──────────────────────────────────────────
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-deployment
+  namespace: portfolio
+  labels:
+    app: portfolio
+    version: "2.0"
+    environment: production
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    description: "Surendhiran Portfolio — TLS/SSL Nginx"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: portfolio
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1          # Allow 1 extra pod during update
+      maxUnavailable: 0    # Zero downtime rolling update
+  template:
+    metadata:
+      labels:
+        app: portfolio
+        version: "2.0"
+    spec:
+      # Security context - run as non-root where possible
+      securityContext:
+        fsGroup: 101        # nginx group
+      containers:
+        - name: portfolio
+          image: portfolio:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+            - name: https
+              containerPort: 443
+              protocol: TCP
+
+          # Resource limits (QoS: Burstable)
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+            limits:
+              cpu: "250m"
+              memory: "128Mi"
+
+          # Mount TLS certs from secret
+          volumeMounts:
+            - name: tls-certs
+              mountPath: /etc/nginx/ssl
+              readOnly: true
+
+          # Readiness: pod receives traffic only when nginx is ready
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
+
+          # Liveness: restart pod if nginx becomes unresponsive
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            failureThreshold: 3
+
+          # Startup probe: give nginx time to start on first boot
+          startupProbe:
+            httpGet:
+              path: /
+              port: 80
+            failureThreshold: 10
+            periodSeconds: 5
+
+      # Mount TLS secret as volume
+      volumes:
+        - name: tls-certs
+          secret:
+            secretName: portfolio-tls-secret
+            defaultMode: 0400   # Read-only for security
+
+---
+# ─── Service (ClusterIP) ─────────────────────────────────
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-service
+  namespace: portfolio
+  labels:
+    app: portfolio
+spec:
+  selector:
+    app: portfolio
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+  type: ClusterIP
+
+---
+# ─── Ingress (HTTPS + TLS termination) ───────────────────
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portfolio-ingress
+  namespace: portfolio
+  annotations:
+    # Force HTTPS redirect
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # HSTS header
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+      add_header X-Frame-Options "DENY" always;
+      add_header X-Content-Type-Options "nosniff" always;
+      add_header X-XSS-Protection "1; mode=block" always;
+      add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    # Enable gzip compression
+    nginx.ingress.kubernetes.io/enable-compression: "true"
+    # Proxy timeouts
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "30"
+spec:
+  ingressClassName: nginx
+  # TLS — uses the secret created from mkcert certs
+  tls:
+    - hosts:
+        - surendhiran.dev.com
+      secretName: portfolio-tls-secret
+  rules:
+    - host: surendhiran.dev.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: portfolio-service
+                port:
+                  number: 80
+
+---
+# ─── HorizontalPodAutoscaler ─────────────────────────────
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: portfolio-hpa
+  namespace: portfolio
+  labels:
+    app: portfolio
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: portfolio-deployment
+  minReplicas: 2
+  maxReplicas: 8
+  metrics:
+    # Scale on CPU usage
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    # Scale on Memory usage
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300   # Wait 5 min before scaling down
+      policies:
+        - type: Pods
+          value: 1
+          periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 30    # Scale up quickly under load
+      policies:
+        - type: Pods
+          value: 2
+          periodSeconds: 30

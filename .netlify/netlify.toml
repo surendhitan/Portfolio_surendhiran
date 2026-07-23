@@ -1,0 +1,66 @@
+headersOrigin = "config"
+redirectsOrigin = "config"
+plugins = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\suren\\Dropbox\\Dacuments\\Study Metirials\\potpolio_12"
+publishOrigin = "config"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+X-Frame-Options = "DENY"
+X-Content-Type-Options = "nosniff"
+X-XSS-Protection = "1; mode=block"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Content-Security-Policy = "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval' fonts.googleapis.com fonts.gstatic.com cdnjs.cloudflare.com cdn.jsdelivr.net"
+
+[[headers]]
+for = "/*.js"
+
+[headers.values]
+Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+for = "/*.css"
+
+[headers.values]
+Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+for = "/*.jpg"
+
+[headers.values]
+Cache-Control = "public, max-age=2592000, immutable"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]

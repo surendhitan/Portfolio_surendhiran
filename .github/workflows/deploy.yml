@@ -1,0 +1,51 @@
+name: CI/CD → Docker + Kubernetes
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  IMAGE_NAME: surendar/portfolio
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build & Push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v3
+
+      - name: Configure kubeconfig
+        run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
+
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl set image deployment/portfolio-deployment \
+            portfolio=${{ env.IMAGE_NAME }}:${{ github.sha }}
+          kubectl rollout status deployment/portfolio-deployment
