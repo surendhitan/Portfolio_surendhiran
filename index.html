@@ -3,124 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <title>Surendhiran A — Full Stack Developer (Mobile & Web Application)</title>
-  <meta name="description" content="Official Portfolio of Surendhiran A — Full Stack Developer (Mobile & Web Application) specializing in React Native, Node.js, PHP, MySQL, Python, .Net, and Cyber Security." />
+  <title>Surendhiran A — Neo-Brutalist Software Engineer</title>
+  <meta name="description" content="Neo-Brutalist Portfolio of Surendhiran A — Full Stack Developer (Mobile & Web Application) specializing in React Native, Node.js, PHP, MySQL, Python, .Net, and Cyber Security." />
   <meta name="author" content="Surendhiran A" />
-  <link rel="canonical" href="https://surendhiran-portfolio-78f142.app/" />
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
-  <link rel="stylesheet" href="style.css?v=7.0.0" />
+  <link rel="stylesheet" href="style.css?v=18.0.0" />
 </head>
-<body>
+<body class="theme-brutalist">
 
-  <!-- Aurora Glow Background Layers -->
-  <div class="aurora-bg">
-    <div class="aurora-blob aurora-1"></div>
-    <div class="aurora-blob aurora-2"></div>
-    <div class="aurora-blob aurora-3"></div>
-    <div class="aurora-mesh"></div>
-  </div>
+  <!-- HUD Grid Background Lines -->
+  <div class="brutal-bg-grid"></div>
 
-  <!-- ─── NAVBAR (GLASS FLOATING BAR) ─────────────── -->
-  <nav class="navbar">
-    <div class="nav-glass">
-      <a href="#profile" class="nav-logo">
-        <span class="nav-logo-dot"></span>
-        SURENDHIRAN A
+  <!-- ─── BRUTALIST HUD NAVBAR ─────────────────────── -->
+  <header class="brutal-header" id="navbar">
+    <div class="container brutal-nav-container">
+      <a href="#profile" class="brutal-logo">
+        <span class="logo-box">[S]</span>
+        <span class="logo-title">SURENDHIRAN.DEV</span>
       </a>
 
-      <ul class="nav-menu">
-        <li><a href="#profile" class="nav-item active">About</a></li>
-        <li><a href="#projects" class="nav-item">Projects</a></li>
-        <li><a href="#experience" class="nav-item">Experience</a></li>
-        <li><a href="#education" class="nav-item">Education</a></li>
-        <li><a href="#skills" class="nav-item">Skills</a></li>
-        <li><a href="#contact" class="nav-item">Contact</a></li>
-      </ul>
+      <nav>
+        <ul class="brutal-nav-menu" id="navLinks">
+          <li><a href="#profile" class="nav-item active">01.ABOUT</a></li>
+          <li><a href="#projects" class="nav-item">02.SYSTEMS</a></li>
+          <li><a href="#experience" class="nav-item">03.EXPERIENCE</a></li>
+          <li><a href="#education" class="nav-item">04.ACADEMICS</a></li>
+          <li><a href="#skills" class="nav-item">05.SKILLS</a></li>
+          <li><a href="#contact" class="nav-item">06.CONTACT</a></li>
+        </ul>
+      </nav>
 
-      <div>
-        <a href="https://wa.me/917871488475" target="_blank" class="btn-nav-wa">
+      <div class="brutal-nav-actions">
+        <a href="https://wa.me/917871488475" target="_blank" class="btn-brutal-yellow-sm">
           <i class="fa-brands fa-whatsapp"></i> +91 78714 88475
         </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
-  </nav>
+  </header>
 
   <main>
     <!-- ─── HERO SECTION ───────────────────────────── -->
-    <section class="hero-section" id="profile">
-      <div class="container hero-grid">
+    <section class="brutal-hero" id="profile">
+      <div class="container brutal-hero-grid">
         
-        <!-- Hero Left Info -->
-        <div class="hero-left">
-          <div class="status-badge-aurora">
-            <span class="dot-emerald-pulse"></span> Available for Full Stack Mobile & Web Roles
+        <!-- Left Column -->
+        <div class="brutal-hero-left">
+          <div class="brutal-status-ticker">
+            <span class="ticker-dot"></span> STATUS: ONLINE // AVAILABLE FOR ROLES
           </div>
 
-          <h1 class="hero-title-aurora">SURENDHIRAN A</h1>
-          <div class="hero-role-aurora">
-            <i class="fa-solid fa-code"></i> Full Stack Developer (Mobile & Web Application)
+          <h1 class="brutal-hero-title">
+            SURENDHIRAN A<span class="text-yellow">.</span>
+          </h1>
+
+          <div class="brutal-hero-sub">
+            &gt; FULL_STACK_DEVELOPER (MOBILE &amp; WEB)
           </div>
 
-          <p class="hero-desc-aurora">
-            During my internship, I gained practical experience in frontend and backend development, database management, and implementing CRUD operations. I worked closely with team members to improve application features and ensure performance and reliability. This experience enhanced my problem-solving skills and strengthened my understanding of the software development process. I am genuinely passionate about building user-focused applications and continuously improving my technical and professional skills.
+          <p class="brutal-hero-bio">
+            Engineered full-stack mobile payment engines &amp; enterprise web applications. Specialized in React Native, Node.js, PHP, MySQL, and Cyber Security authentication protocols. High-performance, scalable software architecture built for production.
           </p>
 
-          <div class="hero-ctas-aurora">
-            <a href="#projects" class="btn-aurora-primary">
-              <i class="fa-solid fa-layer-group"></i> Featured Systems
+          <div class="brutal-hero-ctas">
+            <a href="#projects" class="btn-brutal-yellow">
+              <i class="fa-solid fa-code"></i> VIEW SYSTEMS [ARR]
             </a>
-            <a href="#experience" class="btn-aurora-outline">
-              <i class="fa-solid fa-briefcase"></i> Experience
+            <a href="#contact" class="btn-brutal-black">
+              <i class="fa-solid fa-terminal"></i> INITIATE CONTACT
             </a>
-            <a href="#contact" class="btn-aurora-outline" style="border-color:rgba(6,182,212,0.4); color:var(--cyan);">
-              <i class="fa-solid fa-paper-plane"></i> Contact Me
-            </a>
+          </div>
+
+          <!-- HUD Metrics Grid -->
+          <div class="brutal-hud-metrics">
+            <div class="hud-box">
+              <span class="hud-key">QUALIFICATION</span>
+              <span class="hud-val">MCA DEGREE</span>
+            </div>
+            <div class="hud-box">
+              <span class="hud-key">SPECIALIZATION</span>
+              <span class="hud-val">PGDCS CYBER SEC</span>
+            </div>
+            <div class="hud-box">
+              <span class="hud-key">STACK</span>
+              <span class="hud-val">REACT NATIVE / NODE</span>
+            </div>
           </div>
         </div>
 
-        <!-- Hero Profile Card Aurora -->
-        <div class="hero-right">
-          <div class="card-aurora-box">
-            <div class="avatar-aurora-wrap">
-              <img src="profile.jpg?v=3.0" alt="Surendhiran A" class="avatar-aurora-img" />
-              <span class="badge-degree-aurora">MCA</span>
+        <!-- Right Profile Container -->
+        <div class="brutal-hero-right">
+          <div class="brutal-box profile-hud-box">
+            <div class="corner-mark top-left">+</div>
+            <div class="corner-mark top-right">+</div>
+            <div class="corner-mark bottom-left">+</div>
+            <div class="corner-mark bottom-right">+</div>
+
+            <div class="avatar-brutal-wrap">
+              <img src="profile.jpg?v=3.0" alt="Surendhiran A" class="avatar-brutal-img" />
+              <div class="brutal-tag-yellow">MCA 2026</div>
             </div>
 
-            <h3 class="user-name-aurora">Surendhiran A</h3>
-            <p class="user-role-aurora">Full Stack Mobile & Web Developer</p>
+            <h3 class="brutal-card-name">SURENDHIRAN A</h3>
+            <p class="brutal-card-role">FULL STACK MOBILE &amp; WEB ENGINEER</p>
 
-            <div class="spec-list-aurora">
-              <div class="spec-row-aurora">
-                <span class="spec-k-aurora">STATUS</span>
-                <span class="spec-v-aurora" style="color:var(--emerald);">Available</span>
+            <div class="brutal-spec-list">
+              <div class="spec-item">
+                <span class="k">DEGREE:</span>
+                <span class="v">MCA · PGDCS · B.Sc CS</span>
               </div>
-              <div class="spec-row-aurora">
-                <span class="spec-k-aurora">QUALIFICATIONS</span>
-                <span class="spec-v-aurora">MCA · PGDCS · B.Sc CS</span>
+              <div class="spec-item">
+                <span class="k">LOCATION:</span>
+                <span class="v">TAMIL NADU, INDIA</span>
               </div>
-              <div class="spec-row-aurora">
-                <span class="spec-k-aurora">LOCATION</span>
-                <span class="spec-v-aurora">Tamil Nadu, India</span>
+              <div class="spec-item">
+                <span class="k">EMAIL:</span>
+                <span class="v font-mono">surendhiransurendhiran645</span>
               </div>
-              <div class="spec-row-aurora">
-                <span class="spec-k-aurora">EMAIL</span>
-                <span class="spec-v-aurora" style="font-size:0.75rem;">surendhiransurendhiran645</span>
+              <div class="spec-item">
+                <span class="k">PHONE:</span>
+                <span class="v">+91 78714 88475</span>
               </div>
-              <div class="spec-row-aurora">
-                <span class="spec-k-aurora">PHONE</span>
-                <span class="spec-v-aurora">+91 78714 88475</span>
-              </div>
-              <div class="spec-row-aurora">
-                <span class="spec-k-aurora">LINKEDIN</span>
-                <a href="https://www.linkedin.com/in/surendhiran645" target="_blank" class="spec-v-aurora" style="color:var(--cyan);">
+              <div class="spec-item">
+                <span class="k">LINKEDIN:</span>
+                <a href="https://www.linkedin.com/in/surendhiran645" target="_blank" class="v text-yellow">
                   in/surendhiran645 ↗
                 </a>
               </div>
@@ -131,71 +149,63 @@
       </div>
     </section>
 
-    <!-- ─── FEATURED PROJECTS / SYSTEMS ─────────────── -->
-    <section class="section" id="projects">
+    <!-- ─── FEATURED PROJECTS ───────────────────────── -->
+    <section class="brutal-section" id="projects">
       <div class="container">
-        <div class="section-head-aurora">
-          <span class="tag-aurora">Featured Systems</span>
-          <h2 class="title-aurora">Production Applications & Architecture</h2>
+        <div class="brutal-head">
+          <span class="brutal-tag">// INDEX: 02</span>
+          <h2 class="brutal-title">FEATURED SYSTEMS &amp; ARCHITECTURE</h2>
         </div>
 
-        <div class="grid-cards-aurora">
+        <!-- Filter Controls -->
+        <div class="brutal-filters">
+          <button class="filter-btn active" data-filter="all">[ ALL SYSTEMS ]</button>
+          <button class="filter-btn" data-filter="mobile">[ MOBILE APPS ]</button>
+          <button class="filter-btn" data-filter="web">[ WEB PORTALS ]</button>
+          <button class="filter-btn" data-filter="security">[ CYBER SEC ]</button>
+        </div>
 
-          <div class="card-aurora">
-            <div>
-              <div class="card-aurora-top">
-                <span class="badge-aurora-indigo">Mobile Application</span>
-                <span class="period-aurora">Tecxy IT Park</span>
-              </div>
-              <h3 class="card-aurora-title">SmartPay Mobile Application</h3>
-              <p class="card-aurora-desc">
-                Developed SmartPay, a full-stack mobile payment application at Texcy IT Park, Tirupattur, using React Native, Node.js, and MySQL, integrating Razorpay for secure transactions, authentication, API integration, and efficient database design.
-              </p>
+        <div class="brutal-grid-cards">
+
+          <div class="brutal-box project-item" data-category="mobile">
+            <div class="card-head-bar">
+              <span class="badge-brutal-yellow">MOBILE APPLICATION</span>
+              <span class="card-comp">Tecxy IT Park</span>
             </div>
-            <div class="tech-pills-aurora">
-              <span class="pill-aurora-tag">React Native</span>
-              <span class="pill-aurora-tag">Node.js</span>
-              <span class="pill-aurora-tag">MySQL</span>
-              <span class="pill-aurora-tag">Razorpay</span>
-              <span class="pill-aurora-tag">JWT Auth</span>
+            <h3 class="card-title-text">SmartPay Mobile Application</h3>
+            <p class="card-desc-text">
+              Engineered SmartPay, a full-stack mobile payment application at Tecxy IT Park, Tirupattur. Built with React Native, Node.js backend, and MySQL database, integrating Razorpay payment gateway, secure JWT authentication, and RESTful APIs.
+            </p>
+            <div class="brutal-pills-list">
+              <span>React Native</span><span>Node.js</span><span>MySQL</span><span>Razorpay</span><span>JWT</span>
             </div>
           </div>
 
-          <div class="card-aurora">
-            <div>
-              <div class="card-aurora-top">
-                <span class="badge-aurora-indigo" style="color:var(--cyan); background:rgba(6,182,212,0.12); border-color:rgba(6,182,212,0.25);">Web Portal</span>
-                <span class="period-aurora">Queenbug Tech</span>
-              </div>
-              <h3 class="card-aurora-title">Enterprise Web Services & Database</h3>
-              <p class="card-aurora-desc">
-                Worked on full stack web development using PHP, MySQL, and cloud services, developing responsive interfaces, managing databases, and ensuring application performance, scalability, and secure deployment in a team environment.
-              </p>
+          <div class="brutal-box project-item" data-category="web">
+            <div class="card-head-bar">
+              <span class="badge-brutal-blue">WEB PORTAL</span>
+              <span class="card-comp">Queenbug Tech</span>
             </div>
-            <div class="tech-pills-aurora">
-              <span class="pill-aurora-tag">PHP</span>
-              <span class="pill-aurora-tag">MySQL</span>
-              <span class="pill-aurora-tag">Cloud Services</span>
-              <span class="pill-aurora-tag">CRUD Engine</span>
+            <h3 class="card-title-text">Enterprise Web Services &amp; Database</h3>
+            <p class="card-desc-text">
+              Architected full-stack web solutions using PHP, MySQL, and cloud services. Developed responsive user interfaces, managed database schemas, optimized SQL queries, and ensured reliable cloud deployment.
+            </p>
+            <div class="brutal-pills-list">
+              <span>PHP</span><span>MySQL</span><span>Cloud Services</span><span>CRUD Engine</span>
             </div>
           </div>
 
-          <div class="card-aurora">
-            <div>
-              <div class="card-aurora-top">
-                <span class="badge-aurora-indigo" style="color:var(--emerald); background:rgba(16,185,129,0.12); border-color:rgba(16,185,129,0.25);">Cyber Security</span>
-                <span class="period-aurora">PGDCS Specialization</span>
-              </div>
-              <h3 class="card-aurora-title">Security & API Auth Infrastructure</h3>
-              <p class="card-aurora-desc">
-                Architected secure API authentication infrastructure featuring password hashing (bcrypt), JWT token encryption policies, request payload sanitization, and web security audit defense strategies.
-              </p>
+          <div class="brutal-box project-item" data-category="security">
+            <div class="card-head-bar">
+              <span class="badge-brutal-green">CYBER SECURITY</span>
+              <span class="card-comp">PGDCS Specialization</span>
             </div>
-            <div class="tech-pills-aurora">
-              <span class="pill-aurora-tag">Cyber Security</span>
-              <span class="pill-aurora-tag">Node.js</span>
-              <span class="pill-aurora-tag">bcrypt</span>
-              <span class="pill-aurora-tag">Security Audits</span>
+            <h3 class="card-title-text">Security &amp; API Auth Infrastructure</h3>
+            <p class="card-desc-text">
+              Designed secure API authentication infrastructure featuring bcrypt password hashing, token payload encryption, request sanitization, TLS/SSL security policies, and web security audit defense strategies.
+            </p>
+            <div class="brutal-pills-list">
+              <span>Cyber Security</span><span>Node.js</span><span>bcrypt</span><span>TLS / SSL</span>
             </div>
           </div>
 
@@ -204,51 +214,40 @@
     </section>
 
     <!-- ─── EXPERIENCE SECTION ──────────────────────── -->
-    <section class="section" id="experience">
+    <section class="brutal-section" id="experience">
       <div class="container">
-        <div class="section-head-aurora">
-          <span class="tag-aurora">Work Experience</span>
-          <h2 class="title-aurora">Practical Software Internships</h2>
+        <div class="brutal-head">
+          <span class="brutal-tag">// INDEX: 03</span>
+          <h2 class="brutal-title">PRACTICAL WORK EXPERIENCE</h2>
         </div>
 
-        <div class="grid-cards-aurora">
+        <div class="brutal-grid-cards">
 
-          <div class="card-aurora">
-            <div>
-              <div class="card-aurora-top">
-                <span class="badge-aurora-indigo">Tecxy IT Park</span>
-                <span class="period-aurora">2025 — 2026</span>
-              </div>
-              <h3 class="card-aurora-title">Full Stack Development Intern</h3>
-              <p class="card-aurora-desc">
-                Developed SmartPay, a full-stack mobile payment application at Texcy IT Park, Tirupattur, using React Native, Node.js, and MySQL, integrating Razorpay for secure transactions, authentication, API integration, and efficient database design.
-              </p>
+          <div class="brutal-box">
+            <div class="card-head-bar">
+              <span class="badge-brutal-yellow">Tecxy IT Park</span>
+              <span class="card-comp">2025 — 2026</span>
             </div>
-            <div class="tech-pills-aurora">
-              <span class="pill-aurora-tag">React Native</span>
-              <span class="pill-aurora-tag">Node.js</span>
-              <span class="pill-aurora-tag">MySQL</span>
-              <span class="pill-aurora-tag">Razorpay</span>
-              <span class="pill-aurora-tag">API Integration</span>
+            <h3 class="card-title-text">Full Stack Development Intern</h3>
+            <p class="card-desc-text">
+              Built backend REST APIs in Node.js, designed MySQL database tables for user accounts and transaction histories, and developed mobile client interfaces in React Native integrated with Razorpay gateway.
+            </p>
+            <div class="brutal-pills-list">
+              <span>React Native</span><span>Node.js</span><span>MySQL</span><span>Razorpay API</span>
             </div>
           </div>
 
-          <div class="card-aurora">
-            <div>
-              <div class="card-aurora-top">
-                <span class="badge-aurora-indigo" style="color:var(--cyan); background:rgba(6,182,212,0.12); border-color:rgba(6,182,212,0.25);">Queenbug Tech</span>
-                <span class="period-aurora">2024 — 2025</span>
-              </div>
-              <h3 class="card-aurora-title">Full Stack Development Intern</h3>
-              <p class="card-aurora-desc">
-                Worked on full stack web development using PHP, MySQL, and cloud services, developing responsive interfaces, managing databases, and ensuring application performance, scalability, and secure deployment in a team environment.
-              </p>
+          <div class="brutal-box">
+            <div class="card-head-bar">
+              <span class="badge-brutal-blue">Queenbug Tech</span>
+              <span class="card-comp">2024 — 2025</span>
             </div>
-            <div class="tech-pills-aurora">
-              <span class="pill-aurora-tag">PHP</span>
-              <span class="pill-aurora-tag">MySQL</span>
-              <span class="pill-aurora-tag">Cloud Services</span>
-              <span class="pill-aurora-tag">Database Management</span>
+            <h3 class="card-title-text">Full Stack Development Intern</h3>
+            <p class="card-desc-text">
+              Engineered web applications utilizing PHP, HTML/CSS, JavaScript, and MySQL. Handled database management, dynamic CRUD features, performance optimization, and cloud server configuration.
+            </p>
+            <div class="brutal-pills-list">
+              <span>PHP</span><span>MySQL</span><span>HTML5 / CSS3</span><span>Cloud Services</span>
             </div>
           </div>
 
@@ -257,283 +256,168 @@
     </section>
 
     <!-- ─── EDUCATION SECTION ───────────────────────── -->
-    <section class="section" id="education">
+    <section class="brutal-section" id="education">
       <div class="container">
-        <div class="section-head-aurora">
-          <span class="tag-aurora">Academic Degrees</span>
-          <h2 class="title-aurora">Education & Qualifications</h2>
+        <div class="brutal-head">
+          <span class="brutal-tag">// INDEX: 04</span>
+          <h2 class="brutal-title">ACADEMIC DEGREES &amp; CREDENTIALS</h2>
         </div>
 
-        <div class="timeline-aurora">
-          <div class="edu-card-aurora">
-            <div class="year-badge-aurora">2024 — 2026</div>
-            <div>
-              <h3 class="edu-degree-aurora">Master of Computer Application (MCA)</h3>
-              <p class="edu-school-aurora">Sacred Heart College, TPT — Thiruvalluvar University</p>
-              <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.7;">
-                Master of Computer Applications is a postgraduate program focused on software development, programming, database management, and system design, preparing students for professional roles in the IT industry.
-              </p>
-            </div>
+        <div class="brutal-timeline-grid">
+          
+          <div class="brutal-box">
+            <div class="year-stamp">YEAR: 2024 — 2026</div>
+            <h3 class="card-title-text">Master of Computer Application (MCA)</h3>
+            <p class="inst-text">Sacred Heart College, TPT — Thiruvalluvar University</p>
+            <p class="card-desc-text">
+              Postgraduate degree focused on advanced software engineering, data structures, cloud infrastructure, database management systems, and system design principles.
+            </p>
           </div>
 
-          <div class="edu-card-aurora">
-            <div class="year-badge-aurora" style="color:var(--cyan); background:rgba(6,182,212,0.12); border-color:rgba(6,182,212,0.25);">2025 — 2026</div>
-            <div>
-              <h3 class="edu-degree-aurora">PG Diploma in Cyber Security (PGDCS)</h3>
-              <p class="edu-school-aurora">Sacred Heart College, TPT — Thiruvalluvar University</p>
-              <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.7;">
-                PG Diploma in Cyber Security is a postgraduate program focused on network security, ethical hacking, and information security, preparing students to protect computer systems and digital infrastructure from cyber threats.
-              </p>
-            </div>
+          <div class="brutal-box">
+            <div class="year-stamp yellow">YEAR: 2025 — 2026</div>
+            <h3 class="card-title-text">PG Diploma in Cyber Security (PGDCS)</h3>
+            <p class="inst-text">Sacred Heart College, TPT — Thiruvalluvar University</p>
+            <p class="card-desc-text">
+              Postgraduate diploma specializing in network security, web application vulnerability auditing, ethical hacking methodologies, cryptographic protocols, and system defenses.
+            </p>
           </div>
 
-          <div class="edu-card-aurora">
-            <div class="year-badge-aurora" style="color:var(--indigo); background:rgba(99,102,241,0.12); border-color:rgba(99,102,241,0.25);">2021 — 2024</div>
-            <div>
-              <h3 class="edu-degree-aurora">Bachelor of Science in Computer Science (B.Sc CS)</h3>
-              <p class="edu-school-aurora">Islamiah College, VNB — Thiruvalluvar University</p>
-              <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.7;">
-                Bachelor of Science in Computer Science is an undergraduate program focused on programming, data structures, algorithms, software engineering, database management, and computer networks, preparing students for careers in software development, system analysis, and the IT industry.
-              </p>
-            </div>
+          <div class="brutal-box">
+            <div class="year-stamp">YEAR: 2021 — 2024</div>
+            <h3 class="card-title-text">Bachelor of Science in Computer Science (B.Sc CS)</h3>
+            <p class="inst-text">Islamiah College, VNB — Thiruvalluvar University</p>
+            <p class="card-desc-text">
+              Undergraduate program establishing core computer science fundamentals in algorithms, software development, relational database design, and object-oriented programming.
+            </p>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- ─── SKILLS SECTION ──────────────────────────── -->
-    <section class="section" id="skills">
+    <section class="brutal-section" id="skills">
       <div class="container">
-        <div class="section-head-aurora">
-          <span class="tag-aurora">Skills Inventory</span>
-          <h2 class="title-aurora">Technical Expertise & Soft Competencies</h2>
+        <div class="brutal-head">
+          <span class="brutal-tag">// INDEX: 05</span>
+          <h2 class="brutal-title">TECHNICAL STACK &amp; CAPABILITIES</h2>
         </div>
 
-        <div class="skills-grid-aurora">
+        <div class="brutal-skills-grid">
 
-          <div class="skill-box-aurora">
-            <h3 class="skill-box-title-aurora"><i class="fa-solid fa-mobile-screen-button"></i> Mobile & Frontend Development</h3>
-            <div class="skill-tags-grid-aurora">
-              <div class="skill-tag-aurora">
-                <i class="devicon-react-original colored"></i>
-                <div>
-                  <span class="tag-name-aurora">React Native</span>
-                  <span class="tag-sub-aurora">Cross-Platform</span>
-                </div>
+          <div class="brutal-box">
+            <h3 class="skill-cat-title"><i class="fa-solid fa-mobile-screen"></i> MOBILE &amp; FRONTEND</h3>
+            <div class="skill-items-grid">
+              <div class="skill-pill-box">
+                <i class="devicon-react-original colored"></i> React Native
               </div>
-              <div class="skill-tag-aurora">
-                <i class="devicon-javascript-plain colored"></i>
-                <div>
-                  <span class="tag-name-aurora">JavaScript</span>
-                  <span class="tag-sub-aurora">ES6+ Core</span>
-                </div>
+              <div class="skill-pill-box">
+                <i class="devicon-javascript-plain colored"></i> JavaScript ES6+
               </div>
-              <div class="skill-tag-aurora">
-                <i class="devicon-dot-net-plain colored"></i>
-                <div>
-                  <span class="tag-name-aurora">.Net</span>
-                  <span class="tag-sub-aurora">Frontend & UI</span>
-                </div>
+              <div class="skill-pill-box">
+                <i class="devicon-dot-net-plain colored"></i> .Net UI
               </div>
-              <div class="skill-tag-aurora">
-                <i class="devicon-html5-plain colored"></i>
-                <div>
-                  <span class="tag-name-aurora">HTML5 & CSS3</span>
-                  <span class="tag-sub-aurora">Responsive Web</span>
-                </div>
+              <div class="skill-pill-box">
+                <i class="devicon-html5-plain colored"></i> HTML5 / CSS3
               </div>
             </div>
           </div>
 
-          <div class="skill-box-aurora">
-            <h3 class="skill-box-title-aurora"><i class="fa-solid fa-server"></i> Backend & APIs</h3>
-            <div class="skill-tags-grid-aurora">
-              <div class="skill-tag-aurora">
-                <i class="devicon-nodejs-plain colored"></i>
-                <div>
-                  <span class="tag-name-aurora">Node.js</span>
-                  <span class="tag-sub-aurora">Express APIs</span>
-                </div>
+          <div class="brutal-box">
+            <h3 class="skill-cat-title"><i class="fa-solid fa-server"></i> BACKEND &amp; APIS</h3>
+            <div class="skill-items-grid">
+              <div class="skill-pill-box">
+                <i class="devicon-nodejs-plain colored"></i> Node.js (Express)
               </div>
-              <div class="skill-tag-aurora">
-                <i class="devicon-php-plain colored"></i>
-                <div>
-                  <span class="tag-name-aurora">PHP</span>
-                  <span class="tag-sub-aurora">Web Backend</span>
-                </div>
+              <div class="skill-pill-box">
+                <i class="devicon-php-plain colored"></i> PHP Backend
               </div>
-              <div class="skill-tag-aurora">
-                <i class="devicon-python-plain colored"></i>
-                <div>
-                  <span class="tag-name-aurora">Python</span>
-                  <span class="tag-sub-aurora">Core Logic</span>
-                </div>
+              <div class="skill-pill-box">
+                <i class="devicon-python-plain colored"></i> Python Scripts
               </div>
-              <div class="skill-tag-aurora">
-                <i class="devicon-dot-net-plain colored"></i>
-                <div>
-                  <span class="tag-name-aurora">.Net</span>
-                  <span class="tag-sub-aurora">Framework</span>
-                </div>
+              <div class="skill-pill-box">
+                <i class="devicon-dot-net-plain colored"></i> .Net Framework
               </div>
             </div>
           </div>
 
-          <div class="skill-box-aurora">
-            <h3 class="skill-box-title-aurora"><i class="fa-solid fa-database"></i> Database & Cloud</h3>
-            <div class="skill-tags-grid-aurora">
-              <div class="skill-tag-aurora">
-                <i class="devicon-mysql-plain colored"></i>
-                <div>
-                  <span class="tag-name-aurora">MySQL</span>
-                  <span class="tag-sub-aurora">Relational DB</span>
-                </div>
+          <div class="brutal-box">
+            <h3 class="skill-cat-title"><i class="fa-solid fa-database"></i> DATABASE &amp; CLOUD</h3>
+            <div class="skill-items-grid">
+              <div class="skill-pill-box">
+                <i class="devicon-mysql-plain colored"></i> MySQL DB
               </div>
-              <div class="skill-tag-aurora">
-                <i class="fa-solid fa-cloud" style="color:var(--cyan);"></i>
-                <div>
-                  <span class="tag-name-aurora">Cloud Services</span>
-                  <span class="tag-sub-aurora">Deployments</span>
-                </div>
+              <div class="skill-pill-box">
+                <i class="fa-solid fa-cloud text-yellow"></i> Cloud Services
               </div>
-              <div class="skill-tag-aurora">
-                <i class="devicon-docker-plain colored"></i>
-                <div>
-                  <span class="tag-name-aurora">Docker</span>
-                  <span class="tag-sub-aurora">Containers</span>
-                </div>
+              <div class="skill-pill-box">
+                <i class="devicon-docker-plain colored"></i> Docker
               </div>
-              <div class="skill-tag-aurora">
-                <i class="devicon-kubernetes-plain colored"></i>
-                <div>
-                  <span class="tag-name-aurora">Kubernetes</span>
-                  <span class="tag-sub-aurora">Orchestration</span>
-                </div>
+              <div class="skill-pill-box">
+                <i class="devicon-kubernetes-plain colored"></i> Kubernetes
               </div>
             </div>
           </div>
 
-        </div>
-
-        <!-- Soft Competencies -->
-        <div style="margin-top:40px;">
-          <div class="section-head-aurora" style="margin-bottom:24px; text-align:left;">
-            <span class="tag-aurora">Professional Traits</span>
-            <h3 style="font-family:var(--font-heading); font-size:1.5rem; font-weight:700; color:#fff;">Soft Competencies & Leadership</h3>
-          </div>
-
-          <div class="soft-grid-aurora">
-            <div class="soft-card-aurora">
-              <div class="soft-icon-aurora"><i class="fa-solid fa-comments"></i></div>
-              <div>
-                <h4 style="font-family:var(--font-heading); font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:4px;">Strong Communication Skills</h4>
-                <p style="font-size:0.88rem; color:var(--text-muted);">Documenting technical specifications, API routes, and communicating effectively across teams.</p>
-              </div>
-            </div>
-
-            <div class="soft-card-aurora">
-              <div class="soft-icon-aurora"><i class="fa-solid fa-users-gear"></i></div>
-              <div>
-                <h4 style="font-family:var(--font-heading); font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:4px;">Team Collaboration</h4>
-                <p style="font-size:0.88rem; color:var(--text-muted);">Thriving in Agile development environments and contributing to team codebases.</p>
-              </div>
-            </div>
-
-            <div class="soft-card-aurora">
-              <div class="soft-icon-aurora"><i class="fa-solid fa-puzzle-piece"></i></div>
-              <div>
-                <h4 style="font-family:var(--font-heading); font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:4px;">Problem-Solving Ability</h4>
-                <p style="font-size:0.88rem; color:var(--text-muted);">Debugging complex API bugs, database query bottlenecks, and web security vulnerabilities.</p>
-              </div>
-            </div>
-
-            <div class="soft-card-aurora">
-              <div class="soft-icon-aurora"><i class="fa-solid fa-clock-rotate-left"></i></div>
-              <div>
-                <h4 style="font-family:var(--font-heading); font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:4px;">Time Management</h4>
-                <p style="font-size:0.88rem; color:var(--text-muted);">Prioritizing tasks efficiently under deadlines and delivering project milestones on time.</p>
-              </div>
-            </div>
-
-            <div class="soft-card-aurora">
-              <div class="soft-icon-aurora"><i class="fa-solid fa-user-shield"></i></div>
-              <div>
-                <h4 style="font-family:var(--font-heading); font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:4px;">Leadership Skills</h4>
-                <p style="font-size:0.88rem; color:var(--text-muted);">Taking initiative during full-stack mobile payment application developments.</p>
-              </div>
-            </div>
-
-            <div class="soft-card-aurora">
-              <div class="soft-icon-aurora"><i class="fa-solid fa-arrows-rotate"></i></div>
-              <div>
-                <h4 style="font-family:var(--font-heading); font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:4px;">Adaptability</h4>
-                <p style="font-size:0.88rem; color:var(--text-muted);">Rapidly acquiring new technological stacks, frameworks, and security auditing methods.</p>
-              </div>
-            </div>
-          </div>
         </div>
 
       </div>
     </section>
 
     <!-- ─── CONTACT SECTION ─────────────────────────── -->
-    <section class="section" id="contact">
+    <section class="brutal-section" id="contact">
       <div class="container">
-        <div class="contact-box-aurora">
-          
+        <div class="brutal-box contact-hud">
           <div>
-            <span class="tag-aurora">Get In Touch</span>
-            <h2 style="font-family:var(--font-heading); font-size:2rem; font-weight:800; color:#fff; margin-bottom:16px;">Contact Information</h2>
-            <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.7; margin-bottom:28px;">
-              Feel free to reach out directly for full-time roles, mobile application requests, or software engineering collaborations.
+            <span class="brutal-tag">// INDEX: 06</span>
+            <h2 class="contact-title-text">COMMAND CONSOLE: CONTACT</h2>
+            <p class="contact-sub-text">
+              Direct line for software development roles, mobile engineering contracts, or technical collaboration.
             </p>
 
-            <a href="mailto:surendhiransurendhiran645@gmail.com" class="contact-link-aurora">
-              <i class="fa-solid fa-envelope" style="color:var(--cyan); font-size:1.2rem;"></i>
+            <a href="mailto:surendhiransurendhiran645@gmail.com" class="brutal-contact-item">
+              <i class="fa-solid fa-envelope icon-yellow"></i>
               <div>
-                <div style="font-size:0.75rem; color:var(--text-sub); font-family:var(--font-code);">EMAIL</div>
-                <div style="font-size:0.92rem; font-weight:700; color:#fff;">surendhiransurendhiran645@gmail.com</div>
+                <span class="k font-mono">EMAIL_ID:</span>
+                <span class="v">surendhiransurendhiran645@gmail.com</span>
               </div>
             </a>
 
-            <a href="tel:+917871488475" class="contact-link-aurora">
-              <i class="fa-solid fa-phone" style="color:var(--cyan); font-size:1.2rem;"></i>
+            <a href="tel:+917871488475" class="brutal-contact-item">
+              <i class="fa-solid fa-phone icon-yellow"></i>
               <div>
-                <div style="font-size:0.75rem; color:var(--text-sub); font-family:var(--font-code);">PHONE</div>
-                <div style="font-size:0.92rem; font-weight:700; color:#fff;">+91 78714 88475</div>
+                <span class="k font-mono">PHONE_NO:</span>
+                <span class="v">+91 78714 88475</span>
               </div>
             </a>
 
-            <a href="https://www.linkedin.com/in/surendhiran645" target="_blank" class="contact-link-aurora">
-              <i class="fa-brands fa-linkedin-in" style="color:var(--cyan); font-size:1.2rem;"></i>
+            <a href="https://www.linkedin.com/in/surendhiran645" target="_blank" class="brutal-contact-item">
+              <i class="fa-brands fa-linkedin-in icon-yellow"></i>
               <div>
-                <div style="font-size:0.75rem; color:var(--text-sub); font-family:var(--font-code);">LINKEDIN</div>
-                <div style="font-size:0.92rem; font-weight:700; color:#fff;">linkedin.com/in/surendhiran645</div>
+                <span class="k font-mono">LINKEDIN_URL:</span>
+                <span class="v">linkedin.com/in/surendhiran645</span>
               </div>
             </a>
           </div>
 
-          <form class="contact-form" id="contactForm">
+          <form class="brutal-form" id="contactForm">
             <div>
-              <label style="font-size:0.8rem; font-weight:600; color:var(--text-sub); font-family:var(--font-code);">NAME</label>
-              <input type="text" id="fname" class="input-aurora" placeholder="Your Name" required />
+              <label class="brutal-label">&gt; INPUT: USER_NAME</label>
+              <input type="text" id="fname" class="brutal-input" placeholder="Your Name" required />
             </div>
             <div>
-              <label style="font-size:0.8rem; font-weight:600; color:var(--text-sub); font-family:var(--font-code);">EMAIL</label>
-              <input type="email" id="femail" class="input-aurora" placeholder="your.email@example.com" required />
+              <label class="brutal-label">&gt; INPUT: USER_EMAIL</label>
+              <input type="email" id="femail" class="brutal-input" placeholder="name@domain.com" required />
             </div>
             <div>
-              <label style="font-size:0.8rem; font-weight:600; color:var(--text-sub); font-family:var(--font-code);">SUBJECT</label>
-              <input type="text" id="fsubject" class="input-aurora" placeholder="Full Stack / Mobile Application Role" />
+              <label class="brutal-label">&gt; INPUT: MESSAGE_PAYLOAD</label>
+              <textarea id="fmessage" class="brutal-input" rows="4" placeholder="Payload content..." required></textarea>
             </div>
-            <div>
-              <label style="font-size:0.8rem; font-weight:600; color:var(--text-sub); font-family:var(--font-code);">MESSAGE</label>
-              <textarea id="fmessage" class="input-aurora" rows="4" placeholder="Your message details..." required></textarea>
-            </div>
-            <button type="submit" class="btn-aurora-primary" style="width:100%; justify-content:center; margin-top:10px;">
-              <i class="fa-solid fa-paper-plane"></i> Send Message
+            <button type="submit" class="btn-brutal-yellow btn-full" id="submitBtn">
+              <i class="fa-solid fa-paper-plane"></i> TRANSMIT PAYLOAD
             </button>
-            <p id="formNote" style="font-size:0.85rem; margin-top:10px;"></p>
+            <p id="formNote" class="form-note"></p>
           </form>
 
         </div>
@@ -542,9 +426,10 @@
   </main>
 
   <!-- ─── FOOTER ────────────────────────────────────── -->
-  <footer class="footer-aurora">
-    <div class="container">
-      <div>© 2026 Surendhiran A — Full Stack Mobile & Web Developer. All rights reserved.</div>
+  <footer class="brutal-footer">
+    <div class="container brutal-footer-flex">
+      <div>© 2026 SURENDHIRAN A — NEO-BRUTALIST SOFTWARE ENGINEER.</div>
+      <a href="#profile" class="brutal-back-top" title="Top">[ TOP ^ ]</a>
     </div>
   </footer>
 
