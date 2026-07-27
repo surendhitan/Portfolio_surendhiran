@@ -425,16 +425,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .profile-img-container {
   position: relative;
   overflow: hidden;
-  background: #f1f5f9;
+  background: #0f172a;
 }
 
 .profile-photo {
   width: 100%;
-  height: auto;
-  max-height: 420px;
-  object-fit: contain;
-  object-position: center top;
+  height: 360px;
+  object-fit: cover;
+  object-position: center 15%;
   display: block;
+  transition: transform 0.5s ease;
+}
+
+.profile-card:hover .profile-photo {
+  transform: scale(1.03);
 }
 
 .profile-status-badge {
