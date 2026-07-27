@@ -2,146 +2,158 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <title>Surendhiran A — Neo-Brutalist Software Engineer</title>
-  <meta name="description" content="Neo-Brutalist Portfolio of Surendhiran A — Full Stack Developer (Mobile & Web Application) specializing in React Native, Node.js, PHP, MySQL, Python, .Net, and Cyber Security." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surendhiran A — Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Surendhiran A — Full Stack Developer specializing in React Native, Node.js, PHP, MySQL, Python, .Net, and Cyber Security." />
   <meta name="author" content="Surendhiran A" />
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
-  <link rel="stylesheet" href="style.css?v=18.0.0" />
+  <link rel="stylesheet" href="style.css?v=19.0.0" />
 </head>
-<body class="theme-brutalist">
+<body>
 
-  <!-- HUD Grid Background Lines -->
-  <div class="brutal-bg-grid"></div>
+  <!-- Animated Background -->
+  <div class="bg-canvas">
+    <div class="bg-gradient-orb orb-1"></div>
+    <div class="bg-gradient-orb orb-2"></div>
+    <div class="bg-gradient-orb orb-3"></div>
+    <div class="bg-grid-lines"></div>
+    <div class="bg-particles" id="particles"></div>
+  </div>
 
-  <!-- ─── BRUTALIST HUD NAVBAR ─────────────────────── -->
-  <header class="brutal-header" id="navbar">
-    <div class="container brutal-nav-container">
-      <a href="#profile" class="brutal-logo">
-        <span class="logo-box">[S]</span>
-        <span class="logo-title">SURENDHIRAN.DEV</span>
+  <!-- ─── NAVBAR ─────────────────────────────────── -->
+  <header class="glass-nav" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-name">S</span>
+        <span class="logo-dot">/</span>
+        <span class="logo-bracket">&gt;</span>
       </a>
 
       <nav>
-        <ul class="brutal-nav-menu" id="navLinks">
-          <li><a href="#profile" class="nav-item active">01.ABOUT</a></li>
-          <li><a href="#projects" class="nav-item">02.SYSTEMS</a></li>
-          <li><a href="#experience" class="nav-item">03.EXPERIENCE</a></li>
-          <li><a href="#education" class="nav-item">04.ACADEMICS</a></li>
-          <li><a href="#skills" class="nav-item">05.SKILLS</a></li>
-          <li><a href="#contact" class="nav-item">06.CONTACT</a></li>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link active">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
-      <div class="brutal-nav-actions">
-        <a href="https://wa.me/917871488475" target="_blank" class="btn-brutal-yellow-sm">
-          <i class="fa-brands fa-whatsapp"></i> +91 78714 88475
+      <div class="nav-actions">
+        <a href="https://wa.me/917871488475" target="_blank" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp</span>
         </a>
         <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- ─── HERO SECTION ───────────────────────────── -->
-    <section class="brutal-hero" id="profile">
-      <div class="container brutal-hero-grid">
-        
-        <!-- Left Column -->
-        <div class="brutal-hero-left">
-          <div class="brutal-status-ticker">
-            <span class="ticker-dot"></span> STATUS: ONLINE // AVAILABLE FOR ROLES
+    <!-- ─── HERO SECTION ────────────────────────────── -->
+    <section class="hero-section" id="home">
+      <div class="hero-container">
+
+        <div class="hero-left" data-aos="fade-right">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            Available for Roles
           </div>
 
-          <h1 class="brutal-hero-title">
-            SURENDHIRAN A<span class="text-yellow">.</span>
+          <h1 class="hero-title">
+            Hi, I'm<br>
+            <span class="gradient-text">Surendhiran A</span>
           </h1>
 
-          <div class="brutal-hero-sub">
-            &gt; FULL_STACK_DEVELOPER (MOBILE &amp; WEB)
+          <div class="hero-role">
+            <span class="role-prefix">$</span>
+            <span class="role-text" id="typedRole">Full Stack Developer</span>
+            <span class="cursor-blink">|</span>
           </div>
 
-          <p class="brutal-hero-bio">
-            Engineered full-stack mobile payment engines &amp; enterprise web applications. Specialized in React Native, Node.js, PHP, MySQL, and Cyber Security authentication protocols. High-performance, scalable software architecture built for production.
+          <p class="hero-bio">
+            Engineered full-stack mobile payment engines & enterprise web applications. Specialized in React Native, Node.js, PHP, MySQL, and Cyber Security authentication protocols.
           </p>
 
-          <div class="brutal-hero-ctas">
-            <a href="#projects" class="btn-brutal-yellow">
-              <i class="fa-solid fa-code"></i> VIEW SYSTEMS [ARR]
+          <div class="hero-ctas">
+            <a href="#projects" class="btn-primary">
+              <i class="fa-solid fa-code"></i> View Projects
             </a>
-            <a href="#contact" class="btn-brutal-black">
-              <i class="fa-solid fa-terminal"></i> INITIATE CONTACT
+            <a href="#contact" class="btn-glass">
+              <i class="fa-solid fa-envelope"></i> Contact Me
             </a>
           </div>
 
-          <!-- HUD Metrics Grid -->
-          <div class="brutal-hud-metrics">
-            <div class="hud-box">
-              <span class="hud-key">QUALIFICATION</span>
-              <span class="hud-val">MCA DEGREE</span>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-num">2+</span>
+              <span class="stat-label">Years Experience</span>
             </div>
-            <div class="hud-box">
-              <span class="hud-key">SPECIALIZATION</span>
-              <span class="hud-val">PGDCS CYBER SEC</span>
+            <div class="stat-card">
+              <span class="stat-num">5+</span>
+              <span class="stat-label">Projects Built</span>
             </div>
-            <div class="hud-box">
-              <span class="hud-key">STACK</span>
-              <span class="hud-val">REACT NATIVE / NODE</span>
+            <div class="stat-card">
+              <span class="stat-num">MCA</span>
+              <span class="stat-label">Degree 2026</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Profile Container -->
-        <div class="brutal-hero-right">
-          <div class="brutal-box profile-hud-box">
-            <div class="corner-mark top-left">+</div>
-            <div class="corner-mark top-right">+</div>
-            <div class="corner-mark bottom-left">+</div>
-            <div class="corner-mark bottom-right">+</div>
-
-            <div class="avatar-brutal-wrap">
-              <img src="profile.jpg?v=3.0" alt="Surendhiran A" class="avatar-brutal-img" />
-              <div class="brutal-tag-yellow">MCA 2026</div>
+        <div class="hero-right" data-aos="fade-left">
+          <div class="profile-glass-card">
+            <div class="profile-glow"></div>
+            <div class="profile-img-wrap">
+              <img src="profile.jpg?v=3.0" alt="Surendhiran A" class="profile-img" />
+              <div class="profile-ring"></div>
             </div>
 
-            <h3 class="brutal-card-name">SURENDHIRAN A</h3>
-            <p class="brutal-card-role">FULL STACK MOBILE &amp; WEB ENGINEER</p>
+            <h3 class="profile-name">Surendhiran A</h3>
+            <p class="profile-title">Full Stack Mobile & Web Engineer</p>
 
-            <div class="brutal-spec-list">
-              <div class="spec-item">
-                <span class="k">DEGREE:</span>
-                <span class="v">MCA · PGDCS · B.Sc CS</span>
+            <div class="profile-details">
+              <div class="detail-row">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>MCA · PGDCS · B.Sc CS</span>
               </div>
-              <div class="spec-item">
-                <span class="k">LOCATION:</span>
-                <span class="v">TAMIL NADU, INDIA</span>
+              <div class="detail-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tamil Nadu, India</span>
               </div>
-              <div class="spec-item">
-                <span class="k">EMAIL:</span>
-                <span class="v font-mono">surendhiransurendhiran645</span>
+              <div class="detail-row">
+                <i class="fa-solid fa-envelope"></i>
+                <span>surendhiransurendhiran645@gmail.com</span>
               </div>
-              <div class="spec-item">
-                <span class="k">PHONE:</span>
-                <span class="v">+91 78714 88475</span>
+              <div class="detail-row">
+                <i class="fa-solid fa-phone"></i>
+                <span>+91 78714 88475</span>
               </div>
-              <div class="spec-item">
-                <span class="k">LINKEDIN:</span>
-                <a href="https://www.linkedin.com/in/surendhiran645" target="_blank" class="v text-yellow">
-                  in/surendhiran645 ↗
-                </a>
-              </div>
+            </div>
+
+            <div class="profile-socials">
+              <a href="https://www.linkedin.com/in/surendhiran645" target="_blank" class="social-btn" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/surendhitan" target="_blank" class="social-btn" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="mailto:surendhiransurendhiran645@gmail.com" class="social-btn" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+              <a href="https://wa.me/917871488475" target="_blank" class="social-btn" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -149,62 +161,71 @@
       </div>
     </section>
 
-    <!-- ─── FEATURED PROJECTS ───────────────────────── -->
-    <section class="brutal-section" id="projects">
+    <!-- ─── PROJECTS SECTION ─────────────────────────── -->
+    <section class="section" id="projects">
       <div class="container">
-        <div class="brutal-head">
-          <span class="brutal-tag">// INDEX: 02</span>
-          <h2 class="brutal-title">FEATURED SYSTEMS &amp; ARCHITECTURE</h2>
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">// featured work</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+          <p class="section-sub">Systems & architectures I've engineered in production</p>
         </div>
 
-        <!-- Filter Controls -->
-        <div class="brutal-filters">
-          <button class="filter-btn active" data-filter="all">[ ALL SYSTEMS ]</button>
-          <button class="filter-btn" data-filter="mobile">[ MOBILE APPS ]</button>
-          <button class="filter-btn" data-filter="web">[ WEB PORTALS ]</button>
-          <button class="filter-btn" data-filter="security">[ CYBER SEC ]</button>
+        <div class="filter-bar" data-aos="fade-up">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+          <button class="filter-btn" data-filter="web">Web Portals</button>
+          <button class="filter-btn" data-filter="security">Cyber Security</button>
         </div>
 
-        <div class="brutal-grid-cards">
+        <div class="projects-grid">
 
-          <div class="brutal-box project-item" data-category="mobile">
-            <div class="card-head-bar">
-              <span class="badge-brutal-yellow">MOBILE APPLICATION</span>
-              <span class="card-comp">Tecxy IT Park</span>
+          <div class="glass-card project-item" data-category="mobile" data-aos="fade-up">
+            <div class="card-top-bar">
+              <span class="card-badge badge-purple">Mobile App</span>
+              <span class="card-company">Tecxy IT Park</span>
             </div>
-            <h3 class="card-title-text">SmartPay Mobile Application</h3>
-            <p class="card-desc-text">
-              Engineered SmartPay, a full-stack mobile payment application at Tecxy IT Park, Tirupattur. Built with React Native, Node.js backend, and MySQL database, integrating Razorpay payment gateway, secure JWT authentication, and RESTful APIs.
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-mobile-screen card-icon"></i>
+            </div>
+            <h3 class="card-title">SmartPay Mobile Application</h3>
+            <p class="card-desc">
+              Engineered SmartPay, a full-stack mobile payment application integrating Razorpay payment gateway, JWT authentication, and RESTful APIs with Node.js backend and MySQL database.
             </p>
-            <div class="brutal-pills-list">
+            <div class="tech-pills">
               <span>React Native</span><span>Node.js</span><span>MySQL</span><span>Razorpay</span><span>JWT</span>
             </div>
           </div>
 
-          <div class="brutal-box project-item" data-category="web">
-            <div class="card-head-bar">
-              <span class="badge-brutal-blue">WEB PORTAL</span>
-              <span class="card-comp">Queenbug Tech</span>
+          <div class="glass-card project-item" data-category="web" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-top-bar">
+              <span class="card-badge badge-cyan">Web Portal</span>
+              <span class="card-company">Queenbug Tech</span>
             </div>
-            <h3 class="card-title-text">Enterprise Web Services &amp; Database</h3>
-            <p class="card-desc-text">
-              Architected full-stack web solutions using PHP, MySQL, and cloud services. Developed responsive user interfaces, managed database schemas, optimized SQL queries, and ensured reliable cloud deployment.
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-globe card-icon"></i>
+            </div>
+            <h3 class="card-title">Enterprise Web Services & Database</h3>
+            <p class="card-desc">
+              Architected full-stack web solutions using PHP, MySQL, and cloud services. Developed responsive UIs, managed database schemas, and optimized SQL queries for reliable cloud deployment.
             </p>
-            <div class="brutal-pills-list">
+            <div class="tech-pills">
               <span>PHP</span><span>MySQL</span><span>Cloud Services</span><span>CRUD Engine</span>
             </div>
           </div>
 
-          <div class="brutal-box project-item" data-category="security">
-            <div class="card-head-bar">
-              <span class="badge-brutal-green">CYBER SECURITY</span>
-              <span class="card-comp">PGDCS Specialization</span>
+          <div class="glass-card project-item" data-category="security" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-top-bar">
+              <span class="card-badge badge-green">Cyber Security</span>
+              <span class="card-company">PGDCS Specialization</span>
             </div>
-            <h3 class="card-title-text">Security &amp; API Auth Infrastructure</h3>
-            <p class="card-desc-text">
-              Designed secure API authentication infrastructure featuring bcrypt password hashing, token payload encryption, request sanitization, TLS/SSL security policies, and web security audit defense strategies.
+            <div class="card-icon-wrap">
+              <i class="fa-solid fa-shield-halved card-icon"></i>
+            </div>
+            <h3 class="card-title">Security & API Auth Infrastructure</h3>
+            <p class="card-desc">
+              Designed secure API authentication infrastructure with bcrypt password hashing, token payload encryption, request sanitization, TLS/SSL security policies, and web security audit defense strategies.
             </p>
-            <div class="brutal-pills-list">
+            <div class="tech-pills">
               <span>Cyber Security</span><span>Node.js</span><span>bcrypt</span><span>TLS / SSL</span>
             </div>
           </div>
@@ -213,41 +234,50 @@
       </div>
     </section>
 
-    <!-- ─── EXPERIENCE SECTION ──────────────────────── -->
-    <section class="brutal-section" id="experience">
+    <!-- ─── EXPERIENCE SECTION ───────────────────────── -->
+    <section class="section" id="experience">
       <div class="container">
-        <div class="brutal-head">
-          <span class="brutal-tag">// INDEX: 03</span>
-          <h2 class="brutal-title">PRACTICAL WORK EXPERIENCE</h2>
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">// career timeline</span>
+          <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+          <p class="section-sub">Internships and roles where I built real-world systems</p>
         </div>
 
-        <div class="brutal-grid-cards">
+        <div class="timeline">
 
-          <div class="brutal-box">
-            <div class="card-head-bar">
-              <span class="badge-brutal-yellow">Tecxy IT Park</span>
-              <span class="card-comp">2025 — 2026</span>
-            </div>
-            <h3 class="card-title-text">Full Stack Development Intern</h3>
-            <p class="card-desc-text">
-              Built backend REST APIs in Node.js, designed MySQL database tables for user accounts and transaction histories, and developed mobile client interfaces in React Native integrated with Razorpay gateway.
-            </p>
-            <div class="brutal-pills-list">
-              <span>React Native</span><span>Node.js</span><span>MySQL</span><span>Razorpay API</span>
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-period">2025 — 2026</span>
+                <span class="timeline-badge">Full Stack Intern</span>
+              </div>
+              <h3 class="timeline-company">Tecxy IT Park</h3>
+              <p class="timeline-role">Full Stack Development Intern</p>
+              <p class="card-desc">
+                Built backend REST APIs in Node.js, designed MySQL database tables for user accounts and transaction histories, and developed mobile client interfaces in React Native integrated with Razorpay gateway.
+              </p>
+              <div class="tech-pills">
+                <span>React Native</span><span>Node.js</span><span>MySQL</span><span>Razorpay API</span>
+              </div>
             </div>
           </div>
 
-          <div class="brutal-box">
-            <div class="card-head-bar">
-              <span class="badge-brutal-blue">Queenbug Tech</span>
-              <span class="card-comp">2024 — 2025</span>
-            </div>
-            <h3 class="card-title-text">Full Stack Development Intern</h3>
-            <p class="card-desc-text">
-              Engineered web applications utilizing PHP, HTML/CSS, JavaScript, and MySQL. Handled database management, dynamic CRUD features, performance optimization, and cloud server configuration.
-            </p>
-            <div class="brutal-pills-list">
-              <span>PHP</span><span>MySQL</span><span>HTML5 / CSS3</span><span>Cloud Services</span>
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="timeline-dot"></div>
+            <div class="glass-card timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-period">2024 — 2025</span>
+                <span class="timeline-badge">Full Stack Intern</span>
+              </div>
+              <h3 class="timeline-company">Queenbug Tech</h3>
+              <p class="timeline-role">Full Stack Development Intern</p>
+              <p class="card-desc">
+                Engineered web applications utilizing PHP, HTML/CSS, JavaScript, and MySQL. Handled database management, dynamic CRUD features, performance optimization, and cloud server configuration.
+              </p>
+              <div class="tech-pills">
+                <span>PHP</span><span>MySQL</span><span>HTML5 / CSS3</span><span>Cloud Services</span>
+              </div>
             </div>
           </div>
 
@@ -255,41 +285,42 @@
       </div>
     </section>
 
-    <!-- ─── EDUCATION SECTION ───────────────────────── -->
-    <section class="brutal-section" id="education">
+    <!-- ─── EDUCATION SECTION ────────────────────────── -->
+    <section class="section" id="education">
       <div class="container">
-        <div class="brutal-head">
-          <span class="brutal-tag">// INDEX: 04</span>
-          <h2 class="brutal-title">ACADEMIC DEGREES &amp; CREDENTIALS</h2>
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">// academic background</span>
+          <h2 class="section-title">Education & <span class="gradient-text">Credentials</span></h2>
+          <p class="section-sub">Degrees and certifications that shaped my foundation</p>
         </div>
 
-        <div class="brutal-timeline-grid">
-          
-          <div class="brutal-box">
-            <div class="year-stamp">YEAR: 2024 — 2026</div>
-            <h3 class="card-title-text">Master of Computer Application (MCA)</h3>
-            <p class="inst-text">Sacred Heart College, TPT — Thiruvalluvar University</p>
-            <p class="card-desc-text">
-              Postgraduate degree focused on advanced software engineering, data structures, cloud infrastructure, database management systems, and system design principles.
-            </p>
+        <div class="education-grid">
+
+          <div class="glass-card edu-card" data-aos="fade-up">
+            <div class="edu-year">2024 — 2026</div>
+            <div class="edu-icon"><i class="fa-solid fa-computer"></i></div>
+            <h3 class="edu-degree">Master of Computer Application</h3>
+            <span class="edu-abbr">MCA</span>
+            <p class="edu-inst">Sacred Heart College, TPT — Thiruvalluvar University</p>
+            <p class="card-desc">Advanced software engineering, data structures, cloud infrastructure, database management systems, and system design principles.</p>
           </div>
 
-          <div class="brutal-box">
-            <div class="year-stamp yellow">YEAR: 2025 — 2026</div>
-            <h3 class="card-title-text">PG Diploma in Cyber Security (PGDCS)</h3>
-            <p class="inst-text">Sacred Heart College, TPT — Thiruvalluvar University</p>
-            <p class="card-desc-text">
-              Postgraduate diploma specializing in network security, web application vulnerability auditing, ethical hacking methodologies, cryptographic protocols, and system defenses.
-            </p>
+          <div class="glass-card edu-card featured-edu" data-aos="fade-up" data-aos-delay="100">
+            <div class="edu-year">2025 — 2026</div>
+            <div class="edu-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 class="edu-degree">PG Diploma in Cyber Security</h3>
+            <span class="edu-abbr">PGDCS</span>
+            <p class="edu-inst">Sacred Heart College, TPT — Thiruvalluvar University</p>
+            <p class="card-desc">Network security, vulnerability auditing, ethical hacking, cryptographic protocols, and system defense strategies.</p>
           </div>
 
-          <div class="brutal-box">
-            <div class="year-stamp">YEAR: 2021 — 2024</div>
-            <h3 class="card-title-text">Bachelor of Science in Computer Science (B.Sc CS)</h3>
-            <p class="inst-text">Islamiah College, VNB — Thiruvalluvar University</p>
-            <p class="card-desc-text">
-              Undergraduate program establishing core computer science fundamentals in algorithms, software development, relational database design, and object-oriented programming.
-            </p>
+          <div class="glass-card edu-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="edu-year">2021 — 2024</div>
+            <div class="edu-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3 class="edu-degree">Bachelor of Science in Computer Science</h3>
+            <span class="edu-abbr">B.Sc CS</span>
+            <p class="edu-inst">Islamiah College, VNB — Thiruvalluvar University</p>
+            <p class="card-desc">Core computer science fundamentals in algorithms, software development, relational database design, and object-oriented programming.</p>
           </div>
 
         </div>
@@ -297,139 +328,195 @@
     </section>
 
     <!-- ─── SKILLS SECTION ──────────────────────────── -->
-    <section class="brutal-section" id="skills">
+    <section class="section" id="skills">
       <div class="container">
-        <div class="brutal-head">
-          <span class="brutal-tag">// INDEX: 05</span>
-          <h2 class="brutal-title">TECHNICAL STACK &amp; CAPABILITIES</h2>
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">// tech arsenal</span>
+          <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+          <p class="section-sub">Technologies and tools I work with daily</p>
         </div>
 
-        <div class="brutal-skills-grid">
+        <div class="skills-grid">
 
-          <div class="brutal-box">
-            <h3 class="skill-cat-title"><i class="fa-solid fa-mobile-screen"></i> MOBILE &amp; FRONTEND</h3>
-            <div class="skill-items-grid">
-              <div class="skill-pill-box">
-                <i class="devicon-react-original colored"></i> React Native
+          <div class="glass-card skills-card" data-aos="fade-up">
+            <div class="skills-cat-header">
+              <i class="fa-solid fa-mobile-screen skills-cat-icon purple"></i>
+              <h3 class="skills-cat-title">Mobile & Frontend</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-item">
+                <i class="devicon-react-original colored"></i>
+                <span>React Native</span>
               </div>
-              <div class="skill-pill-box">
-                <i class="devicon-javascript-plain colored"></i> JavaScript ES6+
+              <div class="skill-item">
+                <i class="devicon-javascript-plain colored"></i>
+                <span>JavaScript ES6+</span>
               </div>
-              <div class="skill-pill-box">
-                <i class="devicon-dot-net-plain colored"></i> .Net UI
+              <div class="skill-item">
+                <i class="devicon-dot-net-plain colored"></i>
+                <span>.NET UI</span>
               </div>
-              <div class="skill-pill-box">
-                <i class="devicon-html5-plain colored"></i> HTML5 / CSS3
+              <div class="skill-item">
+                <i class="devicon-html5-plain colored"></i>
+                <span>HTML5 / CSS3</span>
               </div>
             </div>
           </div>
 
-          <div class="brutal-box">
-            <h3 class="skill-cat-title"><i class="fa-solid fa-server"></i> BACKEND &amp; APIS</h3>
-            <div class="skill-items-grid">
-              <div class="skill-pill-box">
-                <i class="devicon-nodejs-plain colored"></i> Node.js (Express)
+          <div class="glass-card skills-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="skills-cat-header">
+              <i class="fa-solid fa-server skills-cat-icon cyan"></i>
+              <h3 class="skills-cat-title">Backend & APIs</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-item">
+                <i class="devicon-nodejs-plain colored"></i>
+                <span>Node.js (Express)</span>
               </div>
-              <div class="skill-pill-box">
-                <i class="devicon-php-plain colored"></i> PHP Backend
+              <div class="skill-item">
+                <i class="devicon-php-plain colored"></i>
+                <span>PHP Backend</span>
               </div>
-              <div class="skill-pill-box">
-                <i class="devicon-python-plain colored"></i> Python Scripts
+              <div class="skill-item">
+                <i class="devicon-python-plain colored"></i>
+                <span>Python Scripts</span>
               </div>
-              <div class="skill-pill-box">
-                <i class="devicon-dot-net-plain colored"></i> .Net Framework
+              <div class="skill-item">
+                <i class="devicon-dot-net-plain colored"></i>
+                <span>.NET Framework</span>
               </div>
             </div>
           </div>
 
-          <div class="brutal-box">
-            <h3 class="skill-cat-title"><i class="fa-solid fa-database"></i> DATABASE &amp; CLOUD</h3>
-            <div class="skill-items-grid">
-              <div class="skill-pill-box">
-                <i class="devicon-mysql-plain colored"></i> MySQL DB
+          <div class="glass-card skills-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="skills-cat-header">
+              <i class="fa-solid fa-database skills-cat-icon green"></i>
+              <h3 class="skills-cat-title">Database & Cloud</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-item">
+                <i class="devicon-mysql-plain colored"></i>
+                <span>MySQL DB</span>
               </div>
-              <div class="skill-pill-box">
-                <i class="fa-solid fa-cloud text-yellow"></i> Cloud Services
+              <div class="skill-item">
+                <i class="fa-solid fa-cloud"></i>
+                <span>Cloud Services</span>
               </div>
-              <div class="skill-pill-box">
-                <i class="devicon-docker-plain colored"></i> Docker
+              <div class="skill-item">
+                <i class="devicon-docker-plain colored"></i>
+                <span>Docker</span>
               </div>
-              <div class="skill-pill-box">
-                <i class="devicon-kubernetes-plain colored"></i> Kubernetes
+              <div class="skill-item">
+                <i class="devicon-kubernetes-plain colored"></i>
+                <span>Kubernetes</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card skills-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="skills-cat-header">
+              <i class="fa-solid fa-shield-halved skills-cat-icon orange"></i>
+              <h3 class="skills-cat-title">Security & DevOps</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-item">
+                <i class="fa-solid fa-lock"></i>
+                <span>Cyber Security</span>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-key"></i>
+                <span>JWT / bcrypt</span>
+              </div>
+              <div class="skill-item">
+                <i class="fa-solid fa-certificate"></i>
+                <span>TLS / SSL</span>
+              </div>
+              <div class="skill-item">
+                <i class="devicon-github-original"></i>
+                <span>Git / GitHub</span>
               </div>
             </div>
           </div>
 
         </div>
-
       </div>
     </section>
 
-    <!-- ─── CONTACT SECTION ─────────────────────────── -->
-    <section class="brutal-section" id="contact">
+    <!-- ─── CONTACT SECTION ──────────────────────────── -->
+    <section class="section" id="contact">
       <div class="container">
-        <div class="brutal-box contact-hud">
-          <div>
-            <span class="brutal-tag">// INDEX: 06</span>
-            <h2 class="contact-title-text">COMMAND CONSOLE: CONTACT</h2>
-            <p class="contact-sub-text">
-              Direct line for software development roles, mobile engineering contracts, or technical collaboration.
-            </p>
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">// let's connect</span>
+          <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+          <p class="section-sub">Open to software development roles, mobile engineering contracts, or technical collaboration</p>
+        </div>
 
-            <a href="mailto:surendhiransurendhiran645@gmail.com" class="brutal-contact-item">
-              <i class="fa-solid fa-envelope icon-yellow"></i>
+        <div class="contact-grid" data-aos="fade-up">
+
+          <div class="contact-info">
+            <a href="mailto:surendhiransurendhiran645@gmail.com" class="contact-link-card">
+              <div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div>
               <div>
-                <span class="k font-mono">EMAIL_ID:</span>
-                <span class="v">surendhiransurendhiran645@gmail.com</span>
+                <span class="contact-link-label">Email</span>
+                <span class="contact-link-val">surendhiransurendhiran645@gmail.com</span>
               </div>
             </a>
-
-            <a href="tel:+917871488475" class="brutal-contact-item">
-              <i class="fa-solid fa-phone icon-yellow"></i>
+            <a href="tel:+917871488475" class="contact-link-card">
+              <div class="contact-link-icon"><i class="fa-solid fa-phone"></i></div>
               <div>
-                <span class="k font-mono">PHONE_NO:</span>
-                <span class="v">+91 78714 88475</span>
+                <span class="contact-link-label">Phone</span>
+                <span class="contact-link-val">+91 78714 88475</span>
               </div>
             </a>
-
-            <a href="https://www.linkedin.com/in/surendhiran645" target="_blank" class="brutal-contact-item">
-              <i class="fa-brands fa-linkedin-in icon-yellow"></i>
+            <a href="https://www.linkedin.com/in/surendhiran645" target="_blank" class="contact-link-card">
+              <div class="contact-link-icon"><i class="fa-brands fa-linkedin-in"></i></div>
               <div>
-                <span class="k font-mono">LINKEDIN_URL:</span>
-                <span class="v">linkedin.com/in/surendhiran645</span>
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-val">linkedin.com/in/surendhiran645</span>
+              </div>
+            </a>
+            <a href="https://wa.me/917871488475" target="_blank" class="contact-link-card">
+              <div class="contact-link-icon whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <span class="contact-link-label">WhatsApp</span>
+                <span class="contact-link-val">+91 78714 88475</span>
               </div>
             </a>
           </div>
 
-          <form class="brutal-form" id="contactForm">
-            <div>
-              <label class="brutal-label">&gt; INPUT: USER_NAME</label>
-              <input type="text" id="fname" class="brutal-input" placeholder="Your Name" required />
-            </div>
-            <div>
-              <label class="brutal-label">&gt; INPUT: USER_EMAIL</label>
-              <input type="email" id="femail" class="brutal-input" placeholder="name@domain.com" required />
-            </div>
-            <div>
-              <label class="brutal-label">&gt; INPUT: MESSAGE_PAYLOAD</label>
-              <textarea id="fmessage" class="brutal-input" rows="4" placeholder="Payload content..." required></textarea>
-            </div>
-            <button type="submit" class="btn-brutal-yellow btn-full" id="submitBtn">
-              <i class="fa-solid fa-paper-plane"></i> TRANSMIT PAYLOAD
-            </button>
-            <p id="formNote" class="form-note"></p>
-          </form>
+          <div class="glass-card contact-form-wrap">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label class="form-label">Your Name</label>
+                <input type="text" id="fname" class="form-input" placeholder="Enter your name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" id="femail" class="form-input" placeholder="name@domain.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea id="fmessage" class="form-input" rows="4" placeholder="Tell me about your project..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary btn-full" id="submitBtn">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+              <p id="formNote" class="form-note"></p>
+            </form>
+          </div>
 
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ─── FOOTER ────────────────────────────────────── -->
-  <footer class="brutal-footer">
-    <div class="container brutal-footer-flex">
-      <div>© 2026 SURENDHIRAN A — NEO-BRUTALIST SOFTWARE ENGINEER.</div>
-      <a href="#profile" class="brutal-back-top" title="Top">[ TOP ^ ]</a>
+  <!-- ─── FOOTER ──────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Surendhiran A — Full Stack Developer</span>
+      <a href="#home" class="back-to-top" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
     </div>
   </footer>
 
