@@ -1,11 +1,45 @@
 /* ═══════════════════════════════════════════════════════
-   SURENDHIRAN PORTFOLIO — app.js v19.0
-   Dark Glassmorphism Template
+   SURENDHIRAN PORTFOLIO — app.js v20.0
+   Cyberpunk Neon Template
    ═══════════════════════════════════════════════════════ */
 
 'use strict';
 
-/* ── Navbar scroll effect ──────────────────────────── */
+/* ── Matrix Rain Background ────────────────────────── */
+(function initMatrix() {
+  const canvas = document.getElementById('matrixCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, columns, drops;
+
+  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>[]{}();';
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    columns = Math.floor(W / 14);
+    drops   = Array(columns).fill(1);
+  }
+
+  function draw() {
+    ctx.fillStyle = 'rgba(7,7,16,0.05)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#00ff88';
+    ctx.font = '12px Share Tech Mono, monospace';
+    drops.forEach((y, i) => {
+      const ch = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(ch, i * 14, y * 14);
+      if (y * 14 > H && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    });
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  setInterval(draw, 50);
+})();
+
+/* ── Navbar scroll ─────────────────────────────────── */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 20);
@@ -20,104 +54,85 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
-// Close menu on link click
-navLinks.querySelectorAll('.nav-link').forEach(link => {
+navLinks.querySelectorAll('.cyber-link').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
   });
 });
 
-/* ── Active nav link on scroll ─────────────────────── */
+/* ── Active nav on scroll ──────────────────────────── */
 const sections = document.querySelectorAll('section[id]');
-const navItems  = document.querySelectorAll('.nav-link');
+const navItems  = document.querySelectorAll('.cyber-link');
 
-const observer = new IntersectionObserver(entries => {
+const secObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       navItems.forEach(n => n.classList.remove('active'));
-      const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      const active = document.querySelector(`.cyber-link[href="#${entry.target.id}"]`);
       if (active) active.classList.add('active');
     }
   });
 }, { threshold: 0.3, rootMargin: '-60px 0px -60px 0px' });
 
-sections.forEach(s => observer.observe(s));
+sections.forEach(s => secObserver.observe(s));
 
-/* ── Typing role animation ─────────────────────────── */
+/* ── Typing role animator ──────────────────────────── */
 const roles = [
-  'Full Stack Developer',
-  'Mobile App Engineer',
-  'Cyber Security Specialist',
-  'React Native Developer',
-  'Node.js Backend Dev'
+  'FULL_STACK_DEVELOPER',
+  'MOBILE_APP_ENGINEER',
+  'CYBER_SEC_SPECIALIST',
+  'REACT_NATIVE_DEV',
+  'NODE.JS_BACKEND_ENG',
 ];
 
 const roleEl = document.getElementById('typedRole');
 if (roleEl) {
-  let roleIdx = 0, charIdx = 0, deleting = false;
+  let ri = 0, ci = 0, del = false;
 
-  function typeRole() {
-    const current = roles[roleIdx];
-    if (!deleting) {
-      roleEl.textContent = current.slice(0, ++charIdx);
-      if (charIdx === current.length) {
-        deleting = true;
-        setTimeout(typeRole, 2000);
-        return;
-      }
-    } else {
-      roleEl.textContent = current.slice(0, --charIdx);
-      if (charIdx === 0) {
-        deleting = false;
-        roleIdx = (roleIdx + 1) % roles.length;
-      }
-    }
-    setTimeout(typeRole, deleting ? 50 : 80);
+  function type() {
+    const cur = roles[ri];
+    roleEl.textContent = del ? cur.slice(0, --ci) : cur.slice(0, ++ci);
+    if (!del && ci === cur.length) { del = true; setTimeout(type, 1800); return; }
+    if ( del && ci === 0)          { del = false; ri = (ri + 1) % roles.length; }
+    setTimeout(type, del ? 40 : 70);
   }
-  typeRole();
+  type();
 }
 
 /* ── Project filter ────────────────────────────────── */
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectItems = document.querySelectorAll('.project-item');
-
-filterBtns.forEach(btn => {
+document.querySelectorAll('.cf-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.cf-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     const filter = btn.dataset.filter;
-    projectItems.forEach(item => {
-      const match = filter === 'all' || item.dataset.category === filter;
-      item.style.transition = 'all 0.4s ease';
-      item.style.opacity    = match ? '1' : '0.2';
-      item.style.transform  = match ? 'scale(1)' : 'scale(0.95)';
-      item.style.pointerEvents = match ? 'all' : 'none';
+    document.querySelectorAll('.project-item').forEach(item => {
+      const show = filter === 'all' || item.dataset.category === filter;
+      item.style.transition    = 'all 0.35s ease';
+      item.style.opacity       = show ? '1' : '0.15';
+      item.style.transform     = show ? 'scale(1)' : 'scale(0.96)';
+      item.style.pointerEvents = show ? 'all' : 'none';
     });
   });
 });
 
-/* ── Scroll reveal (AOS-like) ──────────────────────── */
+/* ── Scroll reveal ─────────────────────────────────── */
 const aosEls = document.querySelectorAll('[data-aos]');
-
-const aosObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const delay = parseInt(entry.target.dataset.aosDelay || 0);
-      setTimeout(() => {
-        entry.target.classList.add('aos-animate');
-      }, delay);
-      aosObserver.unobserve(entry.target);
+const aosObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const delay = parseInt(e.target.dataset.aosDelay || 0);
+      setTimeout(() => e.target.classList.add('aos-animate'), delay);
+      aosObs.unobserve(e.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-aosEls.forEach(el => aosObserver.observe(el));
+aosEls.forEach(el => aosObs.observe(el));
 
 /* ── Contact form ──────────────────────────────────── */
-const form   = document.getElementById('contactForm');
-const note   = document.getElementById('formNote');
+const form      = document.getElementById('contactForm');
+const note      = document.getElementById('formNote');
 const submitBtn = document.getElementById('submitBtn');
 
 if (form) {
@@ -128,80 +143,42 @@ if (form) {
     const msg   = document.getElementById('fmessage').value.trim();
 
     if (!name || !email || !msg) {
-      note.textContent = '⚠ Please fill in all fields.';
-      note.style.color = '#f87171';
+      note.textContent = '⚠ MISSING_FIELDS — please complete all inputs.';
+      note.style.color = '#ff2d78';
       return;
     }
 
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> TRANSMITTING...';
     submitBtn.disabled = true;
 
-    // WhatsApp send
-    const text = encodeURIComponent(`Hi Surendhiran!\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`);
+    const text = encodeURIComponent(`Ping Surendhiran!\n\nNAME: ${name}\nEMAIL: ${email}\n\nMESSAGE:\n${msg}`);
     setTimeout(() => {
       window.open(`https://wa.me/917871488475?text=${text}`, '_blank');
-      note.textContent  = '✓ Message sent via WhatsApp!';
-      note.style.color  = '#6ee7b7';
+      note.textContent = '✓ SIGNAL_TRANSMITTED — Message sent via WhatsApp!';
+      note.style.color = '#00ff88';
       form.reset();
-      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+      submitBtn.innerHTML = '<i class="fa-solid fa-satellite-dish"></i> TRANSMIT_SIGNAL.exe';
       submitBtn.disabled  = false;
       setTimeout(() => { note.textContent = ''; }, 4000);
-    }, 800);
+    }, 900);
   });
 }
 
-/* ── Back to top smooth ────────────────────────────── */
-document.querySelector('.back-to-top')?.addEventListener('click', e => {
+/* ── Random glitch effect on hero name ────────────── */
+(function glitchEffect() {
+  const el = document.querySelector('.hero-name');
+  if (!el) return;
+
+  setInterval(() => {
+    if (Math.random() > 0.85) {
+      el.style.textShadow = `${(Math.random()-0.5)*6}px 0 #ff2d78, ${(Math.random()-0.5)*6}px 0 #00e5ff`;
+      setTimeout(() => { el.style.textShadow = ''; }, 80);
+    }
+  }, 1500);
+})();
+
+/* ── Back to top ───────────────────────────────────── */
+document.querySelector('.back-top')?.addEventListener('click', e => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
-/* ── Particle background ───────────────────────────── */
-const canvas = document.createElement('canvas');
-const ctx    = canvas.getContext('2d');
-const particlesEl = document.getElementById('particles');
-if (particlesEl) {
-  particlesEl.appendChild(canvas);
-  canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
-
-  let W, H, particles = [];
-
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-
-  function randomParticle() {
-    return {
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: Math.random() * 1.5 + 0.3,
-      dx: (Math.random() - 0.5) * 0.3,
-      dy: (Math.random() - 0.5) * 0.3,
-      alpha: Math.random() * 0.5 + 0.1
-    };
-  }
-
-  function init() {
-    resize();
-    particles = Array.from({ length: 80 }, randomParticle);
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(139, 92, 246, ${p.alpha})`;
-      ctx.fill();
-      p.x += p.dx; p.y += p.dy;
-      if (p.x < 0 || p.x > W) p.dx *= -1;
-      if (p.y < 0 || p.y > H) p.dy *= -1;
-    });
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', resize);
-  init();
-  draw();
-}
