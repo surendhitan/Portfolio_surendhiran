@@ -1,9 +1,42 @@
 /* ═══════════════════════════════════════════════════════
-   SURENDHIRAN PORTFOLIO — app.js v21.0
-   Professional Template
+   SURENDHIRAN PORTFOLIO — app.js v22.0
+   Cyberpunk Neon Template
    ═══════════════════════════════════════════════════════ */
 
 'use strict';
+
+/* ── Matrix Rain ───────────────────────────────────── */
+(function matrix() {
+  const canvas = document.getElementById('matrixCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, cols, drops;
+  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホ0123456789ABCDEF<>{}[]()=/\\|;:';
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    cols  = Math.floor(W / 13);
+    drops = Array(cols).fill(1);
+  }
+
+  function draw() {
+    ctx.fillStyle = 'rgba(6,6,16,0.055)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#00ff88';
+    ctx.font = '11px Share Tech Mono, monospace';
+    drops.forEach((y, i) => {
+      const ch = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(ch, i * 13, y * 13);
+      if (y * 13 > H && Math.random() > 0.972) drops[i] = 0;
+      drops[i]++;
+    });
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  setInterval(draw, 48);
+})();
 
 /* ── Navbar scroll ─────────────────────────────────── */
 const navbar = document.getElementById('navbar');
@@ -20,59 +53,87 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
-navLinks.querySelectorAll('.pro-nav-link').forEach(link => {
+navLinks.querySelectorAll('.cyber-link').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
   });
 });
 
-/* ── Active nav link on scroll ─────────────────────── */
+/* ── Active nav on scroll ──────────────────────────── */
 const sections = document.querySelectorAll('section[id]');
-const navItems  = document.querySelectorAll('.pro-nav-link');
+const navItems  = document.querySelectorAll('.cyber-link');
 
-const activeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
       navItems.forEach(n => n.classList.remove('active'));
-      const target = document.querySelector(`.pro-nav-link[href="#${entry.target.id}"]`);
-      if (target) target.classList.add('active');
+      const a = document.querySelector(`.cyber-link[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
     }
   });
-}, { threshold: 0.35, rootMargin: '-64px 0px -64px 0px' });
+}, { threshold: 0.3, rootMargin: '-60px 0px -60px 0px' }).observe !== undefined
+  && sections.forEach(s =>
+      new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            navItems.forEach(n => n.classList.remove('active'));
+            const a = document.querySelector(`.cyber-link[href="#${e.target.id}"]`);
+            if (a) a.classList.add('active');
+          }
+        });
+      }, { threshold: 0.3, rootMargin: '-60px 0px -60px 0px' }).observe(s)
+    );
 
-sections.forEach(s => activeObserver.observe(s));
+/* ── Typing role ───────────────────────────────────── */
+const roles = [
+  'FULL_STACK_DEVELOPER',
+  'MOBILE_APP_ENGINEER',
+  'CYBER_SEC_SPECIALIST',
+  'REACT_NATIVE_DEV',
+  'NODE.JS_BACKEND_ENG',
+];
+const roleEl = document.getElementById('typedRole');
+if (roleEl) {
+  let ri = 0, ci = 0, del = false;
+  function type() {
+    const cur = roles[ri];
+    roleEl.textContent = del ? cur.slice(0, --ci) : cur.slice(0, ++ci);
+    if (!del && ci === cur.length) { del = true; setTimeout(type, 1800); return; }
+    if ( del && ci === 0)          { del = false; ri = (ri + 1) % roles.length; }
+    setTimeout(type, del ? 38 : 68);
+  }
+  type();
+}
 
-/* ── Scroll reveal ─────────────────────────────────── */
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
-
-document.querySelectorAll('[data-reveal], [data-reveal-right]').forEach(el => {
-  revealObserver.observe(el);
-});
-
-/* ── Project filter tabs ────────────────────────────── */
-document.querySelectorAll('.tab-btn').forEach(btn => {
+/* ── Project filter ────────────────────────────────── */
+document.querySelectorAll('.ff-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.ff-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const filter = btn.dataset.filter;
-
+    const f = btn.dataset.filter;
     document.querySelectorAll('.project-item').forEach(item => {
-      const show = filter === 'all' || item.dataset.category === filter;
-      item.style.transition    = 'opacity 0.35s ease, transform 0.35s ease';
-      item.style.opacity       = show ? '1' : '0.15';
-      item.style.transform     = show ? 'scale(1)' : 'scale(0.97)';
+      const show = f === 'all' || item.dataset.category === f;
+      item.style.transition    = 'all 0.35s ease';
+      item.style.opacity       = show ? '1' : '0.12';
+      item.style.transform     = show ? 'scale(1)' : 'scale(0.96)';
       item.style.pointerEvents = show ? 'all' : 'none';
     });
   });
 });
+
+/* ── Scroll reveal ─────────────────────────────────── */
+const aosObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const d = parseInt(e.target.dataset.aosDelay || 0);
+      setTimeout(() => e.target.classList.add('aos-animate'), d);
+      aosObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' });
+
+document.querySelectorAll('[data-aos]').forEach(el => aosObs.observe(el));
 
 /* ── Contact form ──────────────────────────────────── */
 const form      = document.getElementById('contactForm');
@@ -82,48 +143,45 @@ const submitBtn = document.getElementById('submitBtn');
 if (form) {
   form.addEventListener('submit', e => {
     e.preventDefault();
-
-    const name    = document.getElementById('fname').value.trim();
-    const email   = document.getElementById('femail').value.trim();
-    const subject = document.getElementById('fsubject')?.value.trim() || 'Portfolio Enquiry';
-    const msg     = document.getElementById('fmessage').value.trim();
+    const name  = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const msg   = document.getElementById('fmessage').value.trim();
 
     if (!name || !email || !msg) {
-      note.textContent  = '⚠ Please fill in all required fields.';
-      note.style.color  = '#ef4444';
+      note.textContent = '⚠ MISSING_FIELDS — please complete all inputs.';
+      note.style.color = '#ff2d78';
       return;
     }
 
-    submitBtn.innerHTML  = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-    submitBtn.disabled   = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> TRANSMITTING...';
+    submitBtn.disabled  = true;
 
-    const text = encodeURIComponent(
-      `Hi Surendhiran,\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${msg}`
-    );
-
+    const text = encodeURIComponent(`Hi Surendhiran!\n\nNAME: ${name}\nEMAIL: ${email}\n\nMESSAGE:\n${msg}`);
     setTimeout(() => {
       window.open(`https://wa.me/917871488475?text=${text}`, '_blank');
-      note.textContent  = '✓ Message sent successfully via WhatsApp!';
-      note.style.color  = '#059669';
+      note.textContent = '✓ SIGNAL_TRANSMITTED via WhatsApp!';
+      note.style.color = '#00ff88';
       form.reset();
-      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+      submitBtn.innerHTML = '<i class="fa-solid fa-satellite-dish"></i> TRANSMIT_SIGNAL.exe';
       submitBtn.disabled  = false;
-      setTimeout(() => { note.textContent = ''; }, 5000);
+      setTimeout(() => { note.textContent = ''; }, 4500);
     }, 900);
   });
 }
 
-/* ── Smooth back-to-top ────────────────────────────── */
-document.querySelector('.footer-top-btn')?.addEventListener('click', e => {
+/* ── Random hero name glitch ───────────────────────── */
+const heroName = document.querySelector('.hero-name');
+if (heroName) {
+  setInterval(() => {
+    if (Math.random() > 0.82) {
+      heroName.style.textShadow = `${(Math.random()-0.5)*5}px 0 #ff2d78, ${(Math.random()-0.5)*5}px 0 #00e5ff`;
+      setTimeout(() => { heroName.style.textShadow = ''; }, 70);
+    }
+  }, 1600);
+}
+
+/* ── Back to top ───────────────────────────────────── */
+document.querySelector('.back-top')?.addEventListener('click', e => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-/* ── Staggered reveal for grid items ──────────────── */
-document.querySelectorAll('.projects-grid > *, .edu-cards > *, .skills-container > *').forEach((el, i) => {
-  el.style.transitionDelay = `${i * 80}ms`;
-  if (!el.hasAttribute('data-reveal')) {
-    el.setAttribute('data-reveal', '');
-    revealObserver.observe(el);
-  }
 });
